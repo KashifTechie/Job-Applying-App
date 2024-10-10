@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        a{
+            text-decoration: none;
+        }
+        button{
+            height: 30px;
+            width: 50px;
+            background-color:bisque;
+        }
+        .back{
+            height:50px;
+            width: 80px;
+            background-color:cornflowerblue;
+            border-radius: 10%;
+            margin-top:50px;
+            margin-left:50.9%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Thanks For Applying For The Job</h1>
+    </div>
+    <a href="/login"></a>
+    <button class='back'>Go to login</button> 
+</body>
+<script>
+    document.querySelector('.back').addEventListener('click',function() {
+        window.location.href = '/login';
+    })
+  </script>
+</html>

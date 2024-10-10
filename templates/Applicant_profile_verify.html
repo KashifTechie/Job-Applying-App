@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Data</title>
+    <style>
+        body {
+            background: #000000;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #434343, #000000);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #434343, #000000);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        #container1 {
+            width: 100%;
+            height: 18vh;
+            border: 1px solid;
+            background: #3a7bd5;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #3a6073, #3a7bd5);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        .child {
+            margin-left: 30%;
+        }
+
+        #container2 {
+            width: 100%;
+            height: 35vh;
+            margin-top: 0px;
+            background: #E0EAFC;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        table {
+            margin-top: 5px;
+            margin-left: 35%;
+        }
+
+        .data_retrieved {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        label {
+            font-size: 15px;
+            font-weight: 600;
+        }
+        button{
+            width: 100px;
+            height: 25px;
+            background-color:wheat;
+            border-radius: 5px;
+        }
+        #company{
+            display: flex;
+            margin-top: 0px;
+            bottom: 1px;
+            font-size: 40px;
+            font-family: Papyrus, fantasy; 
+            font-weight:900;
+            text-shadow: 5px 3px 6px black;
+            display:block;
+          }
+        #footer{
+            width: 98.9%;
+            position: fixed;
+            background: #E0EAFC;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        } 
+    </style>
+</head>
+
+<body>
+    <nav>
+        <marquee behavior="" direction="right">
+            <h1 style="color: antiquewhite;">Job Application Data</h1>
+        </marquee>
+    </nav>
+    <div id="container1">
+        <div class="child">
+            <h3>Number of employees: <spanh2 id="number_of_emps"></span></h3>
+            <label for="choose" style="font-size: 18px;">Select a number: </label> <input type="text" id="choose">
+            <button id="display_data">Display</button>
+        </div>
+    </div>
+    <br>
+    <div id="container2">
+        <table>
+            <tr>
+                <td><label for="" id="l_id"></label></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class='data_retrieved' id="id"></td>
+            </tr>
+            <tr>
+                <td><label for="" id="l_fname"></label></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class='data_retrieved' id="fname"></td>
+            </tr>
+            <tr>
+                <td><label for="" id="l_lname"></label></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class='data_retrieved' id="lname"></td>
+            </tr>
+            <tr>
+                <td><label for="" id="l_email"></label></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class='data_retrieved' id="email"></td>
+            </tr>
+            <tr>
+                <td><label for="" id="l_pno"></label></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class='data_retrieved' id="pno"></td>
+            </tr>
+            <tr>
+                <td><label for="" id="l_date"></label></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class='data_retrieved' id="date"></td>
+            </tr>
+            <tr>
+                <td><label for="" id="l_role"></label></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class='data_retrieved' id="role"></td>
+            </tr>
+        </table>
+        <br>
+        
+    </div>
+    
+            <div id="footer">
+                <h6 align="center" id='company'>TechSphere</h6>
+            </div>
+     
+</body>
+<script>
+    fetch('http://127.0.0.1:5000/send_data')  // Ensure this matches the Flask app's port
+        .then(data => data.json())
+        .then(data => {
+                console.log(data)
+            
+            
+            /* 
+             // Creating bb array with Sets
+             let bb = [];
+             for (let i of data) {
+                 bb.push(new Set(i));
+             }
+             console.log("hellllllllllllllll",bb); */
+
+            // Creating keys array
+            /*let keys = Array.from(Array(data.length).keys());
+            */
+
+            count = 0
+            for (i in data) {
+                count++
+            }
+            document.querySelector('#number_of_emps').innerHTML = count
+            //document.querySelector('.data').innerHTML = data
+
+            //Display the data
+            let choose = document.querySelector('#choose')
+
+            let button = document.querySelector('#display_data')
+            button.addEventListener('click', function () {
+                if (choose.value < count) {
+                    console.log(choose.value)
+                    document.querySelector('#id').innerHTML = data[choose.value][0]
+                    document.querySelector('#fname').innerHTML = data[choose.value][1]
+                    document.querySelector('#lname').innerHTML = data[choose.value][2]
+                    document.querySelector('#email').innerHTML = data[choose.value][3]
+                    document.querySelector('#pno').innerHTML = data[choose.value][4]
+                    document.querySelector('#date').innerHTML = data[choose.value][5]
+                    document.querySelector('#role').innerHTML = data[choose.value][6]
+
+                    //labels
+                    document.querySelector('#l_id').innerHTML = 'Employee ID'
+                    document.querySelector('#l_fname').innerHTML = 'First name'
+                    document.querySelector('#l_lname').innerHTML = 'Last name'
+                    document.querySelector('#l_email').innerHTML = 'Email'
+                    document.querySelector('#l_pno').innerHTML = 'Phone'
+                    document.querySelector('#l_date').innerHTML = 'Date of applying'
+                    document.querySelector('#l_role').innerHTML = 'Role'
+                }
+                else {
+                    location.reload()
+                }
+
+            })
+
+
+            /*
+             count=0
+              for(i in data){
+                  count++
+              }
+              //Number of records in the table in mysql
+             
+              objects = []
+              for(let i=0; i<count;i++){
+                  objects.push(String.fromCharCode(65 + i))
+              } 
+              child_object = []
+              for(let i=0; i<7;i++){
+                child_object.push(String.fromCharCode(65 + i))
+              } 
+             console.log(child_object)
+             
+             // Function to return bb[pos]
+             let child_dic = {}
+            
+             let pos = 0;
+             function func() {
+                 child_dic = {}
+                 
+                 let pos2=0
+                 for (let key of child_object) {
+                  child_dic[key] = data[pos][pos2];
+                  //console.log(pos,pos2)
+                  pos2= pos2 +1
+                  
+              }
+              //console.log(child_dic)
+              pos = pos + 1;
+              return (child_dic)
+             }
+             
+             // Creating dic
+             let dict = {};
+            
+            for (let key of objects) {
+                dict[key] = func();
+            }   
+                
+             
+            
+            container.innerHTML = JSON.stringify(dict, null, 2);
+             */
+           
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+
+
+</script>
+
+</html>

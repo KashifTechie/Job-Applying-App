@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    nav {
+      height: 60px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      background: #000428;
+      background: #00C9FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ }
+
+    #company {
+      margin-left: 50px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    #info {
+      margin-top: 15px;
+      margin-right: 50px;
+      height: 30px;
+      width: 50px;
+      background-color: #ffbd03;
+      border-radius: 3px;
+      border: 1px black solid;
+      
+    }
+
+    .container {
+      height: 80vh;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background: #abbaab;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    #admin {
+      height: 250px;
+      width: 300px;
+      margin-top: 100px;
+      margin-left: 25%;
+      border-radius: 5px;
+      border: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: white;
+     
+    }
+
+    #user {
+      height: 250px;
+      width: 300px;
+      margin-top: 100px;
+      margin-right: 25%;
+      border-radius: 5px;
+      border: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: white;
+      
+    }
+    input{
+      width:50px;
+      height: 30px;
+    }
+      #company{
+        margin-top:10px;
+        font-size: 30px;
+        font-family: Papyrus, fantasy; 
+        font-weight:900;
+        text-shadow: 5px 3px 6px black;
+      }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h6 href="" class='navba-brand text-light' id='company'>TechSphere</h6>
+    <h3 id="company"></h3>
+    <button id="info"><a style="text-decoration: none; color:rgb(25, 6, 40)" href="">info</a></button>
+  </nav>
+  <aside>
+    <div class="container">
+
+      <form id="admin" action="/admin_login">
+        <h1>Admin Login</h1>
+        <input type="submit" value="Go">
+      </form>
+
+      <form id="user" action="/login">
+        <h1>User Login</h1>
+        <input type="submit" value="Go">
+      </form>
+
+    </div>
+  </aside>
+</body>
+
+</html>

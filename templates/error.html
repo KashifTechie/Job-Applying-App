@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+          height: 100vh;
+          width: 100%;
+        }
+        h1{
+            text-align:center;
+            font-size: 80px;
+            color:red;
+        }
+        img{
+            width:100px;
+            margin-left:50%;
+        }
+        .back{
+            height:50px;
+            width: 80px;
+            background-color:cornflowerblue;
+            border-radius: 10%;
+            margin-top:50px;
+            margin-left:50.9%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Invalid credentials, please enter the valid credentials</h1>
+        
+        <img  src="https://cdn0.iconfinder.com/data/icons/shift-interfaces/32/Error-1024.png" alt="noimg">
+        <button class='back'>Go to login</button> 
+    </div>
+
+    
+
+</body>
+  <script>
+    document.querySelector('.back').addEventListener('click',function() {
+        window.location.href = '/';
+    })
+  </script>
+</html>

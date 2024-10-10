@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 300px auto auto;
+            grid-template-rows: 70px auto 100px;
+            grid-template-areas: "head head head"
+                "article aside aside"
+                "footer footer footer";
+        }
+
+        .child {
+            display: grid;
+            border: 1px solid;
+            box-shadow: 1px 0.5px 5px;
+        }
+
+        nav {
+            grid-area: head;
+            background: #B2FEFA;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #0ED2F7, #B2FEFA);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #0ED2F7, #B2FEFA);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+        article {
+            grid-area: article;
+            background-color: #5B99C2;
+            display: flex;
+            justify-content: center;
+        }
+
+        aside {
+            grid-area: aside;
+            background-color: #D1E9F6;
+
+            place-items: center;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: #1A4870;
+            place-items: center;
+        }
+
+        /* Form */
+        form {
+            width: 100%;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* input options */
+        .inputs {
+            width: 300px;
+            height: 20px;
+
+            box-shadow: 1px 0.5px 5px;
+        }
+
+        #company {
+            margin-top: 10px;
+            margin-left: 10px;
+            font-size: 30px;
+            font-family: Papyrus, fantasy;
+            font-weight: 900;
+            text-shadow: 5px 3px 6px black;
+        }
+
+        /* for Submit button */
+        #submit {
+            width: 80px;
+            height: 40px;
+            margin-left: 40%;
+            background-color: dodgerblue;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0.5px 0.5px 6px, -0.5px -0.5px 6px, 0.5px -0.5px 6px, -0.5px 0.5px 6px;
+        }
+
+        label {
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        #jd {
+            margin-top: 20px;
+            font-size: 30px;
+        }
+
+        #ul {
+            height: 500px;
+            width: 100%;
+            margin-top: 10px;
+    
+        }
+
+        .li {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="child">
+            <h6 href="" class='navba-brand text-light' id='company'>TechSphere</h6>
+        </nav>
+        <article class="child">
+            <h1 align="center"  id="jd">Job Description</h1>
+            <br>
+            <hr color="black" width="300px">
+            <div id="ul">
+                <ul id="requiremnets">
+                </ul>
+            </div>
+        </article>
+        <aside class="child">
+            <form action="/job_application" method="POST">
+
+                <br>
+                <table>
+                    <th colspan="2">
+                        <h1 style="font-size: 40px;">Job Application</h1>
+                    </th>
+                    <tr>
+                        <th colspan="2">
+                            <p style="font-size: 20px;">Please comolete the form below to apply for a position with us</p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td><label for="fname">First Name: </label></td>
+                        <td><input type="text" name="fname" id="fname" class="inputs"></td>
+
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                        <td><label for="lname">Last Name: </label></td>
+                        <td><input type="text" name="lname" id="lname" class="inputs"></td>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                        <td><label for="email">Email: </label></td>
+                        <td><input type="email" name="email" id="email" class="inputs"></td>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                        <td><label for="pno">Phone Number: </label></td>
+                        <td><input type="text" name="pno" id="pno" class="inputs"></td>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                        <td><label for="date">Date Of Birth: </label></td>
+                        <td><input type="date" name="date" id="date" placeholder="Date Of Birth" style="width:150px; height: 30px;"></td>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                        <td><label for="role">Enter The Role: </label></td>
+                        <td>
+                            <select id="jobrole" name="role" style="height: 30px; width: 300px; border-radius: 8px;
+            box-shadow: 1px 0.5px 5px;">
+                                <option hidden>Choose your role</option>
+                                <option>Front End Developer</option>
+                                <option>Back End Developer</option>
+                                <option>Python Developer</option>
+                                <option>Java Developer</option>
+                                <option>C++ Developer</option>
+                                <option>Database Engineer</option>
+                                <option>Data Scientist</option>
+                                <option>Data Analyst</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                        <td colspan="2"><input type="submit" value="Apply" id="submit"></td>
+                    </tr>
+                </table>
+            </form>
+        </aside>
+        <footer class="child">  </footer>
+
+    </div>
+</body>
+<script>
+    const  jobrole = document.querySelector('#jobrole')
+    const requiremnets = document.querySelector('#requiremnets');
+    jobrole.addEventListener('change', function () {
+        if (jobrole.value === "Front End Developer") {
+            requiremnets.innerHTML = `<li class="li">HTML</li>
+                                      <li class="li">CSS</li>
+                                      <li class="li">JavaScript</li>
+                                      <li class="li">React</li>
+                                      <li class="li">Bootstrap</li>
+                                      <li class="li">Responsive Design</li>
+                                      <li class="li">Version Control (Git)</li>
+                                      `
+        }
+        else if(jobrole.value == "Back End Developer"){
+            requiremnets.innerHTML = `<li class="li">Node.js</li>
+                                      <li class="li">Express.js</li>
+                                      <li class="li">Python</li>
+                                      <li class="li">Django/Flask</li>
+                                      <li class="li">RESTful APIs</li>
+                                      <li class="li">SQL</li>
+                                      <li class="li">Authentication/Authorization</li>
+                                      `
+        }
+        else if(jobrole.value == "Python Developer"){
+            requiremnets.innerHTML = `<li class="li">Python</li>
+                                      <li class="li">Flask/Django</li>
+                                      <li class="li">REST APIs</li>
+                                      <li class="li">SQL</li>
+                                      <li class="li">Object-Oriented Programming (OOP)</li>
+                                      <li class="li">Version Control (Git)</li>
+                                      <li class="li">Unit Testing</li>
+                                      `
+        }
+        else if(jobrole.value == "Java Developer"){
+            requiremnets.innerHTML = `<li class="li">Java</li>
+                                      <li class="li">Spring Framework</li>
+                                      <li class="li">Hibernate</li>
+                                      <li class="li">Maven</li>
+                                      <li class="li">REST APIs</li>
+                                      <li class="li">JSP/Servlets</li>
+                                      <li class="li">SQL</li>
+                                      `
+        }
+        else if(jobrole.value == "C++ Developer"){
+            requiremnets.innerHTML = `<li class="li">C++</li>
+                                      <li class="li">STL (Standard Template Library)</li>
+                                      <li class="li">Boost Libraries</li>
+                                      <li class="li">Multithreading</li>
+                                      <li class="li">Object-Oriented Programming</li>
+                                      <li class="li">Memory Management</li>
+                                      <li class="li">Debugging and Profiling</li>
+                                      `
+        }
+        else if(jobrole.value == "Database Engineer"){
+            requiremnets.innerHTML = `<li class="li">SQL</li>
+                                      <li class="li">NoSQL (MongoDB, Cassandra)</li>
+                                      <li class="li">Database Design</li>
+                                      <li class="li">Data Modeling</li>
+                                      <li class="li">Stored Procedures</li>
+                                      <li class="li">Database Optimization</li>
+                                      <li class="li">Database Backup & Recovery</li>
+                                      `
+        }
+        else if(jobrole.value == "Data Scientist"){
+            requiremnets.innerHTML = `<li class="li">Python</li>
+                                      <li class="li">Machine Learning (Scikit-learn, TensorFlow)</li>
+                                      <li class="li">Data Wrangling</li>
+                                      <li class="li">Data Visualization (Matplotlib, Seaborn)</li>
+                                      <li class="li">SQL</li>
+                                      <li class="li">Statistics</li>
+                                      <li class="li">Big Data Technologies (Hadoop, Spark)</li>
+                                      `
+        }
+        else if(jobrole.value == "Data Analyst"){
+            requiremnets.innerHTML = `<li class="li">SQL</li>
+                                      <li class="li">Excel</li>
+                                      <li class="li">Python</li>
+                                      <li class="li">Data Visualization (Tableau, Power BI)</li>
+                                      <li class="li">Statistical Analysis</li>
+                                      <li class="li">Data Cleaning</li>
+                                      <li class="li">ETL (Extract, Transform, Load)</li>
+                                      `
+        }
+    })
+</script>
+
+</html>
